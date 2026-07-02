@@ -69,23 +69,31 @@
 
   /* ---------- HERO ---------- */
   .hero { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; position: relative; padding: 190px 0 60px; overflow: hidden; }
-  .hero-orb { position: absolute; width: 640px; height: 640px; top: 46%; left: 50%; margin: -320px 0 0 -320px; border-radius: 50%; background: conic-gradient(from 0deg, rgba(29,221,189,0.0), rgba(29,221,189,0.24), rgba(41,120,255,0.24), rgba(41,120,255,0.0), rgba(29,221,189,0.0)); filter: blur(70px); animation: spin 26s linear infinite; pointer-events: none; opacity: 0.9; }
-  .hero-glow-a { position: absolute; width: 50vw; height: 50vw; max-width: 640px; max-height: 640px; top: -10%; right: -8%; background: radial-gradient(circle, rgba(41,120,255,0.22), transparent 62%); filter: blur(10px); pointer-events: none; animation: floatA 15s ease-in-out infinite; }
-  .hero-glow-b { position: absolute; width: 42vw; height: 42vw; max-width: 520px; max-height: 520px; bottom: -14%; left: -10%; background: radial-gradient(circle, rgba(29,221,189,0.18), transparent 62%); filter: blur(10px); pointer-events: none; animation: floatB 18s ease-in-out infinite; }
-  @keyframes spin { to { transform: rotate(360deg); } }
+  .hero-glow-a { position: absolute; width: 50vw; height: 50vw; max-width: 640px; max-height: 640px; top: -10%; right: -8%; background: radial-gradient(circle, rgba(41,120,255,0.16), transparent 62%); filter: blur(10px); pointer-events: none; animation: floatA 15s ease-in-out infinite; }
+  .hero-glow-b { position: absolute; width: 42vw; height: 42vw; max-width: 520px; max-height: 520px; bottom: -14%; left: -10%; background: radial-gradient(circle, rgba(29,221,189,0.13), transparent 62%); filter: blur(10px); pointer-events: none; animation: floatB 18s ease-in-out infinite; }
   @keyframes floatA { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-34px, 26px); } }
   @keyframes floatB { 0%,100% { transform: translate(0,0); } 50% { transform: translate(28px, -28px); } }
   .hero .wrap { position: relative; z-index: 2; text-align: center; }
 
-  .brand-lockup { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 30px; opacity: 0; transform: translateY(16px); animation: fadeUp 0.9s var(--ease) 0.05s forwards; }
+  .brand-lockup { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 22px; opacity: 0; transform: translateY(16px); animation: fadeUp 0.9s var(--ease) 0.05s forwards; }
   .brand-lockup img { height: 168px; width: auto; }
   .brand-lockup span { font-size: 12px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); }
 
-  h1.headline { font-size: clamp(40px, 8.4vw, 96px); font-weight: 900; letter-spacing: -0.035em; opacity: 0; transform: translateY(24px); animation: fadeUp 0.9s var(--ease) 0.15s forwards; }
-  h1.headline .shine { display: block; background: linear-gradient(45deg, #1DDDBD 0%, #2978FF 45%, #8fd0ff 55%, #2978FF 70%, #1DDDBD 100%); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; animation: shimmer 7s linear infinite; text-shadow: 0 0 60px rgba(41,120,255,0.35); }
-  h1.headline .sub { display: block; font-size: clamp(22px, 3.4vw, 40px); font-weight: 700; color: var(--text); margin-top: 6px; letter-spacing: -0.02em; }
-  @keyframes shimmer { to { background-position: -250% center; } }
   @keyframes fadeUp { to { opacity: 1; transform: none; } }
+
+  /* ---- pintura/pincelada de identidade (recriacao do convite) ---- */
+  .headline-wrap { position: relative; display: inline-block; margin: 0 auto; padding: 40px clamp(16px, 7vw, 90px) 30px; opacity: 0; transform: translateY(24px); animation: fadeUp 0.9s var(--ease) 0.15s forwards; }
+  .brush-art { position: absolute; inset: -6% -4%; z-index: 0; pointer-events: none; }
+  .brush-art svg { width: 100%; height: 100%; display: block; }
+  .brush-art .drift1 { animation: brushDrift1 22s ease-in-out infinite; transform-origin: 600px 320px; }
+  .brush-art .drift2 { animation: brushDrift2 26s ease-in-out infinite; transform-origin: 600px 320px; }
+  @keyframes brushDrift1 { 0%,100% { transform: translate(0,0) rotate(-14deg); } 50% { transform: translate(-10px, 8px) rotate(-11deg); } }
+  @keyframes brushDrift2 { 0%,100% { transform: translate(0,0) rotate(-9deg); } 50% { transform: translate(12px, -6px) rotate(-12deg); } }
+
+  h1.headline { position: relative; z-index: 2; }
+  h1.headline .kicker { display: block; font-size: clamp(15px, 2.1vw, 24px); font-weight: 800; letter-spacing: 0.32em; color: #fff; text-transform: uppercase; margin-bottom: 2px; }
+  h1.headline .big { display: block; font-size: clamp(52px, 11.5vw, 136px); font-weight: 900; letter-spacing: -0.02em; line-height: 0.86; color: #fff; text-shadow: 0 10px 34px rgba(0,0,0,0.5); }
+  h1.headline .sub { display: block; font-size: clamp(20px, 3.2vw, 34px); font-weight: 800; color: #fff; margin-top: 16px; letter-spacing: 0.01em; }
 
   .hero-lead { max-width: 640px; margin: 26px auto 0; font-size: clamp(15px, 1.6vw, 18px); color: var(--muted-2); opacity: 0; transform: translateY(20px); animation: fadeUp 0.9s var(--ease) 0.28s forwards; }
 
@@ -197,7 +205,7 @@
 
 <header id="header">
   <div class="wrap nav">
-    <a href="#top" aria-label="C3C Software">
+    <a href="index.html" aria-label="C3C Software">
       <img src="assets/c3c-logo-horizontal.png" alt="C3C Software" class="brand-img" />
     </a>
     <a href="#inscricao" class="nav-cta">Garantir minha vaga</a>
@@ -206,7 +214,6 @@
 
 <!-- ===== HERO ===== -->
 <section class="hero" id="top">
-  <div class="hero-orb"></div>
   <div class="hero-glow-a"></div>
   <div class="hero-glow-b"></div>
   <div class="wrap">
@@ -214,10 +221,47 @@
       <img src="assets/c3c-logo-square.png" alt="C3C" />
       <span>C3C apresenta</span>
     </div>
-    <h1 class="headline">
-      <span class="shine">Agentic Black Friday</span>
-      <span class="sub">com Salesforce</span>
-    </h1>
+    <div class="headline-wrap">
+      <div class="brush-art" aria-hidden="true">
+        <svg viewBox="0 0 1200 640" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="brushGradA" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#1DDDBD"/>
+              <stop offset="100%" stop-color="#2978FF"/>
+            </linearGradient>
+            <linearGradient id="brushGradB" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#17c2e0"/>
+              <stop offset="100%" stop-color="#2978FF"/>
+            </linearGradient>
+            <filter id="roughen1" x="-30%" y="-30%" width="160%" height="160%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.012 0.05" numOctaves="3" seed="7" result="n"/>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="70" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+            <filter id="roughen2" x="-30%" y="-30%" width="160%" height="160%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.015 0.045" numOctaves="3" seed="21" result="n"/>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="80" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+            <filter id="roughen3" x="-30%" y="-30%" width="160%" height="160%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.014 0.04" numOctaves="3" seed="42" result="n"/>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="65" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+          </defs>
+          <g class="drift1">
+            <rect x="-140" y="120" width="980" height="300" rx="50" fill="url(#brushGradA)" filter="url(#roughen1)" opacity="0.9"/>
+          </g>
+          <g class="drift2">
+            <rect x="260" y="70" width="1020" height="320" rx="50" fill="url(#brushGradB)" filter="url(#roughen2)" opacity="0.85"/>
+          </g>
+          <rect x="30" y="150" width="1140" height="360" rx="40" fill="#0A0F1E" filter="url(#roughen3)" opacity="0.94"/>
+        </svg>
+      </div>
+      <h1 class="headline">
+        <span class="kicker">Agentic</span>
+        <span class="big">Black</span>
+        <span class="big">Friday</span>
+        <span class="sub">com Salesforce</span>
+      </h1>
+    </div>
     <p class="hero-lead">A conexão entre SXSW, NRF e o momento decisivo do varejo: um encontro com líderes de IA, varejo e CX para destravar o caso de uso agêntico da sua Black Friday.</p>
 
     <div class="hero-facts">
@@ -357,7 +401,7 @@
         Salesforce Partner
       </span>
     </div>
-    <p class="foot-fine">© 2026 C3C Software · R. Diogo Jácome, 372, Vila Nova Conceição, São Paulo</p>
+    <p class="foot-fine">© 2026 C3C Software · Praça São Paulo Office, R. Henri Dunant, 792, Conjunto 609/60, Chácara Santo Antônio, São Paulo, SP, 04709-110</p>
   </div>
 </footer>
 
